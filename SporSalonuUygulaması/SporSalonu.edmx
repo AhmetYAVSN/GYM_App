@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBSporSalonuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_AntremanProgrami">
+          <Key>
+            <PropertyRef Name="Program_Id" />
+          </Key>
+          <Property Name="Program_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Uye_Id" Type="int" />
+          <Property Name="Antrenor_Id" Type="int" />
+          <Property Name="Baslangic_Saati" Type="int" />
+          <Property Name="Bitis_Saati" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_antrenor">
+          <Key>
+            <PropertyRef Name="Antrenor_Id" />
+          </Key>
+          <Property Name="Antrenor_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Adi" Type="nvarchar" MaxLength="20" />
+          <Property Name="Soyadi" Type="nvarchar" MaxLength="20" />
+          <Property Name="Dogum_Tarihi" Type="datetime" />
+          <Property Name="Cinsiyet" Type="nvarchar" MaxLength="5" />
+          <Property Name="Telefon" Type="int" />
+          <Property Name="E_Posta" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_GirisKarti">
+          <Key>
+            <PropertyRef Name="Grs_Id" />
+          </Key>
+          <Property Name="Grs_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Durumu" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="tbl_Gunler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gunler" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_PersonelBilgileri">
+          <Key>
+            <PropertyRef Name="Personel_Id" />
+          </Key>
+          <Property Name="Personel_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TC_No" Type="nvarchar" MaxLength="11" />
+          <Property Name="Ad_Soyad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kul_adi" Type="nvarchar" MaxLength="15" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="15" />
+          <Property Name="Telefon" Type="int" />
+          <Property Name="Adres" Type="nvarchar(max)" />
+          <Property Name="Giris_Karti" Type="int" />
+          <Property Name="Kayit_Tarihi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Program">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Program_Adi" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tbl_Saatler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Saatler" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="tbl_UyeBilgileri">
+          <Key>
+            <PropertyRef Name="Uye_Id" />
+          </Key>
+          <Property Name="Uye_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad_Soyad" Type="nvarchar" MaxLength="50" />
+          <Property Name="TC_No" Type="nvarchar" MaxLength="11" />
+          <Property Name="Telefon" Type="int" />
+          <Property Name="Giris_Karti" Type="int" />
+          <Property Name="Cinsiyet" Type="nvarchar" MaxLength="5" />
+          <Property Name="Gun" Type="int" />
+          <Property Name="Boy" Type="int" />
+          <Property Name="Kilo" Type="int" />
+          <Property Name="Yas" Type="int" />
+          <Property Name="Kayit_Suresi" Type="nvarchar(max)" />
+          <Property Name="Program_Sec" Type="int" />
+        </EntityType>
+        <EntityContainer Name="DBSporSalonuModelStoreContainer">
+          <EntitySet Name="tbl_AntremanProgrami" EntityType="Self.tbl_AntremanProgrami" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_antrenor" EntityType="Self.tbl_antrenor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_GirisKarti" EntityType="Self.tbl_GirisKarti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Gunler" EntityType="Self.tbl_Gunler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_PersonelBilgileri" EntityType="Self.tbl_PersonelBilgileri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Program" EntityType="Self.tbl_Program" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Saatler" EntityType="Self.tbl_Saatler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UyeBilgileri" EntityType="Self.tbl_UyeBilgileri" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBSporSalonuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_AntremanProgrami">
+          <Key>
+            <PropertyRef Name="Program_Id" />
+          </Key>
+          <Property Name="Program_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Uye_Id" Type="Int32" />
+          <Property Name="Antrenor_Id" Type="Int32" />
+          <Property Name="Baslangic_Saati" Type="Int32" />
+          <Property Name="Bitis_Saati" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_antrenor">
+          <Key>
+            <PropertyRef Name="Antrenor_Id" />
+          </Key>
+          <Property Name="Antrenor_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Adi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Soyadi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Dogum_Tarihi" Type="DateTime" Precision="3" />
+          <Property Name="Cinsiyet" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="Int32" />
+          <Property Name="E_Posta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_GirisKarti">
+          <Key>
+            <PropertyRef Name="Grs_Id" />
+          </Key>
+          <Property Name="Grs_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Durumu" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Gunler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gunler" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_PersonelBilgileri">
+          <Key>
+            <PropertyRef Name="Personel_Id" />
+          </Key>
+          <Property Name="Personel_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TC_No" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Ad_Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kul_adi" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="Int32" />
+          <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Giris_Karti" Type="Int32" />
+          <Property Name="Kayit_Tarihi" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_Program">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Program_Adi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Saatler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Saatler" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_UyeBilgileri">
+          <Key>
+            <PropertyRef Name="Uye_Id" />
+          </Key>
+          <Property Name="Uye_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad_Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TC_No" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="Int32" />
+          <Property Name="Giris_Karti" Type="Int32" />
+          <Property Name="Cinsiyet" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Gun" Type="Int32" />
+          <Property Name="Boy" Type="Int32" />
+          <Property Name="Kilo" Type="Int32" />
+          <Property Name="Yas" Type="Int32" />
+          <Property Name="Kayit_Suresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Program_Sec" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="DBSporSalonuEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_AntremanProgrami" EntityType="Self.tbl_AntremanProgrami" />
+          <EntitySet Name="tbl_antrenor" EntityType="Self.tbl_antrenor" />
+          <EntitySet Name="tbl_GirisKarti" EntityType="Self.tbl_GirisKarti" />
+          <EntitySet Name="tbl_Gunler" EntityType="Self.tbl_Gunler" />
+          <EntitySet Name="tbl_PersonelBilgileri" EntityType="Self.tbl_PersonelBilgileri" />
+          <EntitySet Name="tbl_Program" EntityType="Self.tbl_Program" />
+          <EntitySet Name="tbl_Saatler" EntityType="Self.tbl_Saatler" />
+          <EntitySet Name="tbl_UyeBilgileri" EntityType="Self.tbl_UyeBilgileri" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBSporSalonuModelStoreContainer" CdmEntityContainer="DBSporSalonuEntities">
+          <EntitySetMapping Name="tbl_AntremanProgrami">
+            <EntityTypeMapping TypeName="DBSporSalonuModel.tbl_AntremanProgrami">
+              <MappingFragment StoreEntitySet="tbl_AntremanProgrami">
+                <ScalarProperty Name="Program_Id" ColumnName="Program_Id" />
+                <ScalarProperty Name="Uye_Id" ColumnName="Uye_Id" />
+                <ScalarProperty Name="Antrenor_Id" ColumnName="Antrenor_Id" />
+                <ScalarProperty Name="Baslangic_Saati" ColumnName="Baslangic_Saati" />
+                <ScalarProperty Name="Bitis_Saati" ColumnName="Bitis_Saati" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_antrenor">
+            <EntityTypeMapping TypeName="DBSporSalonuModel.tbl_antrenor">
+              <MappingFragment StoreEntitySet="tbl_antrenor">
+                <ScalarProperty Name="Antrenor_Id" ColumnName="Antrenor_Id" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+                <ScalarProperty Name="Dogum_Tarihi" ColumnName="Dogum_Tarihi" />
+                <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="E_Posta" ColumnName="E_Posta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_GirisKarti">
+            <EntityTypeMapping TypeName="DBSporSalonuModel.tbl_GirisKarti">
+              <MappingFragment StoreEntitySet="tbl_GirisKarti">
+                <ScalarProperty Name="Grs_Id" ColumnName="Grs_Id" />
+                <ScalarProperty Name="Durumu" ColumnName="Durumu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Gunler">
+            <EntityTypeMapping TypeName="DBSporSalonuModel.tbl_Gunler">
+              <MappingFragment StoreEntitySet="tbl_Gunler">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Gunler" ColumnName="Gunler" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_PersonelBilgileri">
+            <EntityTypeMapping TypeName="DBSporSalonuModel.tbl_PersonelBilgileri">
+              <MappingFragment StoreEntitySet="tbl_PersonelBilgileri">
+                <ScalarProperty Name="Personel_Id" ColumnName="Personel_Id" />
+                <ScalarProperty Name="TC_No" ColumnName="TC_No" />
+                <ScalarProperty Name="Ad_Soyad" ColumnName="Ad_Soyad" />
+                <ScalarProperty Name="Kul_adi" ColumnName="Kul_adi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Giris_Karti" ColumnName="Giris_Karti" />
+                <ScalarProperty Name="Kayit_Tarihi" ColumnName="Kayit_Tarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Program">
+            <EntityTypeMapping TypeName="DBSporSalonuModel.tbl_Program">
+              <MappingFragment StoreEntitySet="tbl_Program">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Program_Adi" ColumnName="Program_Adi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Saatler">
+            <EntityTypeMapping TypeName="DBSporSalonuModel.tbl_Saatler">
+              <MappingFragment StoreEntitySet="tbl_Saatler">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Saatler" ColumnName="Saatler" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_UyeBilgileri">
+            <EntityTypeMapping TypeName="DBSporSalonuModel.tbl_UyeBilgileri">
+              <MappingFragment StoreEntitySet="tbl_UyeBilgileri">
+                <ScalarProperty Name="Uye_Id" ColumnName="Uye_Id" />
+                <ScalarProperty Name="Ad_Soyad" ColumnName="Ad_Soyad" />
+                <ScalarProperty Name="TC_No" ColumnName="TC_No" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Giris_Karti" ColumnName="Giris_Karti" />
+                <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+                <ScalarProperty Name="Gun" ColumnName="Gun" />
+                <ScalarProperty Name="Boy" ColumnName="Boy" />
+                <ScalarProperty Name="Kilo" ColumnName="Kilo" />
+                <ScalarProperty Name="Yas" ColumnName="Yas" />
+                <ScalarProperty Name="Kayit_Suresi" ColumnName="Kayit_Suresi" />
+                <ScalarProperty Name="Program_Sec" ColumnName="Program_Sec" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
